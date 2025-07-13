@@ -11,8 +11,6 @@ if ! grep -q "1 received" debug.txt; then
 fi
 #se ho un match tutto funziona e non faccio nulla
 
-#!/bin/bash
-
 LOGFILE="/home/gabriel/script/ensureWifiIsOnRasp/connessione.log"
 
 if ping -c 1 -W 2 8.8.8.8 > /dev/null 2>&1; then
