@@ -10,3 +10,14 @@ if ! grep -q "1 received" debug.txt; then
     pihole restardns
 fi
 #se ho un match tutto funziona e non faccio nulla
+
+#!/bin/bash
+
+LOGFILE="/home/gabriel/script/ensureWifiIsOnRasp/connessione.log"
+
+if ping -c 1 -W 2 8.8.8.8 > /dev/null 2>&1; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Connessione OK" >> "$LOGFILE"
+    # qui puoi aggiungere: sudo systemctl restart pihole-FTL.service
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Nessuna connessione" >> "$LOGFILE"
+fi
